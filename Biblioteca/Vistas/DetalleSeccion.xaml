@@ -1,0 +1,156 @@
+﻿<Window x:Class="Biblioteca.Vistas.DetalleSeccion"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Biblioteca.Vistas"
+        mc:Ignorable="d"
+        Title="Seccion"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" MinWidth="150" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock
+            Text="Secciones"
+            Margin="5"
+            FontSize="18"
+            Grid.Column="0" Grid.Row="0"
+            Grid.ColumnSpan="2"/>
+        
+        <ListView
+            x:Name="ListaSecciones"
+            BorderThickness="0"
+            Grid.Column="0" Grid.Row="1">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <EventSetter Event="MouseDoubleClick" Handler="SeleccionarSeccion" />
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="Letra" DisplayMemberBinding="{Binding Letra}" Width="Auto"/>
+                        <GridViewColumn Header="Catedrático" DisplayMemberBinding="{Binding ObjetoCatedratico.NombreCompleto}" Width="Auto"/>
+                        <GridViewColumn Header="Periodo" DisplayMemberBinding="{Binding ObjetoPeriodo}" Width="Auto"/>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Grid
+            Grid.Column="1" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!--Labels-->
+            <TextBlock
+                Text="Letra"
+                Margin="5"
+                VerticalAlignment="Center"
+                Grid.Column="0" Grid.Row="0" />
+            <TextBlock
+                Text="Catedrático"
+                Margin="5"
+                VerticalAlignment="Center"
+                Grid.Column="0" Grid.Row="1" />
+            <!--<TextBlock
+                Text="Horario"
+                Margin="5"
+                VerticalAlignment="Center"
+                Grid.Column="0" Grid.Row="2" />-->
+            <TextBlock
+                Text="Periodo"
+                Margin="5"
+                VerticalAlignment="Center"
+                Grid.Column="0" Grid.Row="3" />
+
+            <!--Entrada-->
+            <TextBox
+                x:Name="Letra"
+                Margin="5"
+                MaxWidth="150"
+                MinWidth="150"
+                Grid.Column="1" Grid.Row="0"
+                TextChanged="IntroducirTexto"/>
+            <ComboBox
+                x:Name="Catedratico"
+                Margin="5"
+                MaxWidth="150"
+                MinWidth="150"
+                IsEditable="True"
+                TextBoxBase.TextChanged="IntroducirCatedratico"
+                SelectionChanged="SeleccionarCatedratico"
+                Grid.Column="1" Grid.Row="1"/>
+            <!--<TextBox
+                x:Name="Horario"
+                Margin="5"
+                MaxWidth="150"
+                MinWidth="150"
+                Grid.Column="1" Grid.Row="2"
+                TextChanged="IntroducirTexto"/>-->
+            <StackPanel
+                Orientation="Horizontal"
+                Grid.Column="1" Grid.Row="3">
+                <ComboBox
+                    x:Name="Periodo"
+                    Margin="5"
+                    MinWidth="110"
+                    MaxWidth="110"
+                    SelectionChanged="SeleccionarPeriodo" />
+                <Button
+                    x:Name="BotonAgregarPeriodo"
+                    Margin="0"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    Click="ClickAgregarPeriodo">
+                    <Image Source="../Iconos/agregar.png" Margin="5" />
+                </Button>
+            </StackPanel>
+        </Grid>
+        <StackPanel
+            Orientation="Horizontal"
+            FlowDirection="RightToLeft"
+            Grid.Column="0" Grid.Row="3"
+            Grid.ColumnSpan="2">
+            <Button
+                x:Name="BotonAceptar"
+                Content="Aceptar"
+                Margin="5"
+                BorderThickness="0"
+                IsDefault="True"
+                IsEnabled="False"
+                Background="SteelBlue"
+                Padding="5"
+                Click="ClickAceptar"/>
+            <Button
+                x:Name="BotonCancelar"
+                Content="Cancelar"
+                Margin="5"
+                BorderThickness="0"
+                IsCancel="True"
+                Padding="5"/>
+        </StackPanel>
+    </Grid>
+</Window>

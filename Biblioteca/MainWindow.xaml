@@ -1,0 +1,107 @@
+﻿<Window x:Class="Biblioteca.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Biblioteca"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Loaded="Cargar"
+        Unloaded="Descargar">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!--Botones-->
+        <Button
+            x:Name="BotonCarreras"
+            Margin="5"
+            Grid.Column="0" Grid.Row="0"
+            BorderThickness="0"
+            ToolTip="Carreras"
+            Background="Transparent"
+            Click="ClickCarreras">
+            <Image Source="./Iconos/carreras.scale-100.png" Margin="5" />
+        </Button>
+        <Button
+            x:Name="BotonClases"
+            Margin="5"
+            Grid.Column="0" Grid.Row="1"
+            BorderThickness="0"
+            ToolTip="Clases"
+            Background="Transparent"
+            Click="ClickClases">
+            <Image Source="./Iconos/clases.scale-100.png" Margin="5" />
+        </Button>
+        <Button
+            x:Name="BotonPersonas"
+            Margin="5"
+            Grid.Column="0" Grid.Row="2"
+            BorderThickness="0"
+            ToolTip="Personas"
+            Background="Transparent"
+            Click="ClickPersonas">
+            <Image Source="./Iconos/personas.scale-100.png" Margin="5" />
+        </Button>
+        <Button
+            x:Name="BotonPrestables"
+            Margin="5"
+            Grid.Column="0" Grid.Row="3"
+            BorderThickness="0"
+            ToolTip="Prestables"
+            Background="Transparent"
+            Click="ClickPrestables">
+            <Image Source="./Iconos/prestables.scale-100.png" Margin="5" />
+        </Button>
+        <Button
+            x:Name="BotonPrestamos"
+            Margin="5"
+            Grid.Column="0" Grid.Row="4"
+            BorderThickness="0"
+            ToolTip="Prestamos"
+            Background="Transparent"
+            Click="ClickPrestamos">
+            <Image Source="./Iconos/prestamos.scale-100.png" Margin="5" />
+        </Button>
+        <Button
+            x:Name="BotonLibros"
+            Margin="5"
+            Grid.Column="0" Grid.Row="5"
+            BorderThickness="0"
+            ToolTip="Libros"
+            Background="Transparent"
+            Click="ClickLibros">
+            <Image Source="./Iconos/libros.scale-100.png" Margin="5" />
+        </Button>
+        <Button
+            x:Name="BotonReportes"
+            Margin="5"
+            Grid.Column="0" Grid.Row="6"
+            BorderThickness="0"
+            ToolTip="Reportes"
+            Background="Transparent"
+            Click="ClickReportes">
+            <Image Source="./Iconos/reportes.png" Margin="5" />
+        </Button>
+        
+        <!--Contenido-->
+        <Frame
+            x:Name="Contenido"
+            Grid.Column="1" Grid.Row="0"
+            Grid.RowSpan="8"
+            NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Window>

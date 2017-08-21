@@ -1,0 +1,105 @@
+﻿<Window x:Class="Biblioteca.Vistas.DetallePeriodo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Biblioteca.Vistas"
+        mc:Ignorable="d"
+        Title="Periodo"
+        SizeToContent="WidthAndHeight"
+        ShowInTaskbar="False"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterOwner">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock
+            Text="Periodo"
+            Margin="5"
+            FontSize="18"
+            Grid.Column="0" Grid.Row="0" />
+
+        <Grid
+            x:Name="PanelContenido"
+            Grid.Column="0" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!--Labels-->
+            <TextBlock
+                Text="Inicio"
+                Margin="5"
+                Grid.Column="0" Grid.Row="0"
+                VerticalAlignment="Center" />
+            <TextBlock
+                Text="Fin"
+                Margin="5"
+                Grid.Column="0" Grid.Row="1"
+                VerticalAlignment="Center" />
+            <TextBlock
+                Text="Numero"
+                Margin="5"
+                Grid.Column="0" Grid.Row="2"
+                VerticalAlignment="Center" />
+
+            <!--Entrada-->
+            <DatePicker
+                x:Name="Inicio"
+                Margin="5"
+                MinWidth="150"
+                MaxWidth="150"
+                SelectedDateChanged="SeleccionarHora"
+                Grid.Column="1" Grid.Row="0" />
+            <DatePicker
+                x:Name="Fin"
+                Margin="5"
+                MinWidth="150"
+                MaxWidth="150"
+                SelectedDateChanged="SeleccionarHora"
+                Grid.Column="1" Grid.Row="1" />
+            <TextBox
+                x:Name="Numero"
+                Margin="5"
+                MinWidth="150"
+                MaxWidth="150"
+                Grid.Column="1" Grid.Row="2"
+                TextChanged="IntroducirTexto" />
+        </Grid>
+
+        <StackPanel
+            x:Name="PanelNavegacion"
+            Orientation="Horizontal"
+            FlowDirection="RightToLeft"
+            Grid.Column="0" Grid.Row="2">
+            <Button
+                x:Name="BotonAceptar"
+                Margin="5"
+                Content="Aceptar"
+                Background="SteelBlue"
+                BorderThickness="0"
+                Padding="5"
+                IsDefault="True"
+                IsEnabled="False"
+                Click="ClickAceptar"/>
+            <Button
+                x:Name="BotonCancelar"
+                Margin="5"
+                Content="Cancelar"
+                BorderThickness="0"
+                Padding="5"
+                IsCancel="True"/>
+        </StackPanel>
+    </Grid>
+</Window>

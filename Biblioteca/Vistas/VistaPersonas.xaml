@@ -1,0 +1,57 @@
+﻿<Page x:Class="Biblioteca.Vistas.VistaPersonas"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Biblioteca.Vistas"
+      mc:Ignorable="d"
+      Title="VistaPersonas">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!--Oanel Agregar-->
+        <StackPanel
+            x:Name="PanelAgregar"
+            Orientation="Horizontal"
+            FlowDirection="LeftToRight"
+            Grid.Column="0" Grid.Row="0">
+            <Button
+                x:Name="BotonAgregar"
+                Margin="5"
+                BorderThickness="0"
+                Background="Transparent"
+                Click="ClickAgregar">
+                <Image Source="../Iconos/agregar.png" Margin="5" />
+            </Button>
+            <TextBlock
+                Text="Agregar Persona"
+                Margin="5"
+                VerticalAlignment="Center"
+                FontSize="18"/>
+        </StackPanel>
+
+        <ListView
+            x:Name="Lista"
+            Grid.Column="0" Grid.Row="1"
+            BorderThickness="0">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <EventSetter Event="MouseDoubleClick" Handler="Seleccionar" />
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="Identidad" DisplayMemberBinding="{Binding Identidad}" Width="Auto" />
+                        <GridViewColumn Header="Nombre" DisplayMemberBinding="{Binding Nombre}" Width="Auto" />
+                        <GridViewColumn Header="Apellido" DisplayMemberBinding="{Binding Apellido}" Width="Auto" />
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Page>

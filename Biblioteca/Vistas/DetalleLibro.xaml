@@ -1,0 +1,155 @@
+﻿<Window x:Class="Biblioteca.Vistas.DetalleLibro"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Biblioteca.Vistas"
+        mc:Ignorable="d"
+        Title="Libro"
+        Icon="/Biblioteca;component/Iconos/libros.scale-100.png"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        SizeToContent="WidthAndHeight"
+        ShowInTaskbar="False">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock
+            Text="Libro"
+            Margin="5"
+            FontSize="18"
+            Grid.Column="0" Grid.Row="0" />
+
+        <Grid
+            Grid.Column="0" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            
+            <!--Labels-->
+            <TextBlock
+                Text="ISBN"
+                Margin="5"
+                VerticalAlignment="Center"
+                Grid.Column="0" Grid.Row="0" />
+            <TextBlock
+                Text="Título"
+                Margin="5"
+                VerticalAlignment="Center"
+                Grid.Column="0" Grid.Row="1" />
+            <TextBlock
+                Text="Autores"
+                Margin="5"
+                VerticalAlignment="Center"
+                Grid.Column="0" Grid.Row="2" />
+            <TextBlock
+                Text="Editorial"
+                Margin="5"
+                VerticalAlignment="Center"
+                Grid.Column="0" Grid.Row="3" />
+
+            <!--Entrada-->
+            <TextBox
+                x:Name="ISBN"
+                Margin="5"
+                MaxWidth="150"
+                MinWidth="150"
+                Grid.Column="1" Grid.Row="0"
+                TextChanged="IntroducirTexto"/>
+            <TextBox
+                x:Name="Titulo"
+                Margin="5"
+                MaxWidth="150"
+                MinWidth="150"
+                Grid.Column="1" Grid.Row="1"
+                TextChanged="IntroducirTexto"/>
+            <StackPanel
+                Orientation="Vertical"
+                Grid.Column="1" Grid.Row="2">
+                <StackPanel
+                    Orientation="Horizontal">
+                    <ComboBox
+                        x:Name="Autor"
+                        Margin="5"
+                        Width="100"
+                        IsEditable="True"
+                        Grid.Column="1" Grid.Row="0"
+                        SelectionChanged="SeleccionarAutor"
+                        TextBoxBase.TextChanged="IntroducirAutor"/>
+                    <Button
+                        x:Name="BotonAgregarAutor"
+                        ToolTip="Agregar Autor"
+                        Margin="5"
+                        BorderThickness="0"
+                        Click="AgregarAutor">
+                        <Image Source="../Iconos/agregar.png" Margin="5" />
+                    </Button>
+                </StackPanel>
+                <ListView
+                    x:Name="ListaAutores"
+                    Margin="5"
+                    BorderThickness="0">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn DisplayMemberBinding="{Binding Nombre}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
+            <StackPanel
+                Orientation="Horizontal"
+                Grid.Column="1" Grid.Row="3">
+                <ComboBox
+                    x:Name="Editorial"
+                    Margin="5"
+                    Width="100"
+                    IsEditable="True"
+                    Grid.Column="1" Grid.Row="0"
+                    SelectionChanged="SeleccionarEditorial"
+                    TextBoxBase.TextChanged="IntroducirEditorial"/>
+                <Button
+                    x:Name="BotonAgregarEditorial"
+                    ToolTip="Agrgar Editorial"
+                    Margin="5"
+                    BorderThickness="0"
+                    Click="AgregarEditorial">
+                    <Image Source="../Iconos/agregar.png" Margin="5" />
+                </Button>
+            </StackPanel>
+        </Grid>
+        <StackPanel
+            Orientation="Horizontal"
+            FlowDirection="RightToLeft"
+            Grid.Column="0" Grid.Row="2">
+            <Button
+                x:Name="BotonAceptar"
+                Content="Aceptar"
+                Margin="5"
+                BorderThickness="0"
+                IsDefault="True"
+                IsEnabled="False"
+                Background="SteelBlue"
+                Padding="5"
+                Click="ClickAceptar"/>
+            <Button
+                x:Name="BotonCancelar"
+                Content="Cancelar"
+                Margin="5"
+                BorderThickness="0"
+                IsCancel="True"
+                Padding="5"/>
+        </StackPanel>
+    </Grid>
+</Window>

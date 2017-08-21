@@ -1,0 +1,29 @@
+﻿<Window x:Class="Biblioteca.Vistas.ReporteDiario"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Biblioteca.Vistas"
+        mc:Ignorable="d"
+        Title="Reporte Diario"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="CanResize"
+        ShowInTaskbar="False"
+        Width="512"
+        Height="384">
+    <DocumentViewer>
+        <FixedDocument>
+            <PageContent>
+                <FixedPage x:Name="Pagina">
+                    <StackPanel Margin="30,30,30,0" VerticalAlignment="Top">
+                        <Image Height="100" Source="/Biblioteca;component/Iconos/logo.png" HorizontalAlignment="Left"/>
+                        <TextBlock TextWrapping="Wrap" Text="Universidad José Cecilio del Valle" FontSize="24" />
+                        <TextBlock TextWrapping="Wrap" Text="Reporte diario de registros de biblioteca" />
+                        <TextBlock x:Name="Nombre" TextWrapping="Wrap" Text="TextBlock" />
+                        <StackPanel x:Name="Contenido" Margin="0, 50" />
+                    </StackPanel>
+                </FixedPage>
+            </PageContent>
+        </FixedDocument>
+    </DocumentViewer>
+</Window>

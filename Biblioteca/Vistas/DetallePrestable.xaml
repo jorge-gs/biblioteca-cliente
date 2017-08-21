@@ -1,0 +1,147 @@
+﻿<Window x:Class="Biblioteca.Vistas.DetallePrestable"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Biblioteca.Vistas"
+        mc:Ignorable="d"
+        Title="Artículos"
+        Icon="/Biblioteca;component/Iconos/prestables.scale-100.png"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        SizeToContent="WidthAndHeight"
+        ShowInTaskbar="False">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock
+            x:Name="TituloPrestable"
+            Text="Artículo"
+            Margin="5"
+            FontSize="18"
+            Grid.Column="0" Grid.Row="0" />
+
+        <Grid
+            Grid.Column="0" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            
+            <!--Labels-->
+            <TextBlock
+                Text="Código"
+                Margin="5"
+                VerticalAlignment="Center"
+                Grid.Column="0" Grid.Row="0" />
+            <TextBlock
+                Text="Tipo"
+                VerticalAlignment="Center"
+                Margin="5"
+                Grid.Column="0" Grid.Row="1" />
+            <TextBlock
+                Text="Estado"
+                Margin="5"
+                VerticalAlignment="Center"
+                Grid.Column="0" Grid.Row="2" />
+            <TextBlock
+                Text="Descripcion"
+                Margin="5"
+                VerticalAlignment="Center"
+                Grid.Column="0" Grid.Row="3" />
+            
+            <!--Entrada-->
+            <TextBox
+                x:Name="Codigo"
+                Margin="5"
+                MinWidth="150"
+                MaxWidth="150"
+                TextChanged="IntroducirTexto"
+                Grid.Column="1" Grid.Row="0" />
+            <ComboBox
+                x:Name="Tipo"
+                Margin="5"
+                Width="150"
+                Grid.Column="1" Grid.Row="1"
+                SelectedIndex="3"
+                SelectionChanged="SeleccionarCombo">
+                <ComboBox.Items>
+                    <ComboBoxItem Content="Aula" />
+                    <ComboBoxItem Content="Cubículo" />
+                    <ComboBoxItem Content="Libro" />
+                    <ComboBoxItem Content="Otro" />
+                </ComboBox.Items>
+            </ComboBox>
+            <ComboBox
+                x:Name="Estado"
+                Margin="5"
+                Width="150"
+                Grid.Column="1" Grid.Row="2"
+                SelectedIndex="0"
+                SelectionChanged="SeleccionarCombo">
+                <ComboBox.Items>
+                    <ComboBoxItem Content="Nuevo" />
+                    <ComboBoxItem Content="Bueno" />
+                    <ComboBoxItem Content="Aceptable" />
+                    <ComboBoxItem Content="Deteriorado" />
+                    <ComboBoxItem Content="Retirado" />
+                </ComboBox.Items>
+            </ComboBox>
+            <TextBox
+                x:Name="Descripcion"
+                Margin="5"
+                MinWidth="150"
+                MaxWidth="150"
+                TextChanged="IntroducirTexto"
+                Grid.Column="1" Grid.Row="3" />
+        </Grid>
+
+        <Button
+            x:Name="BotonCopia"
+            Content="Copia"
+            Margin="5"
+            Padding="5"
+            BorderThickness="0"
+            Width="100"
+            IsEnabled="False"
+            HorizontalAlignment="Left"
+            Grid.Column="0" Grid.Row="2"
+            Grid.ColumnSpan="2"
+            Click="ClickCopia" />
+
+        <StackPanel
+            Orientation="Horizontal"
+            FlowDirection="RightToLeft"
+            Grid.Column="0" Grid.Row="3">
+            <Button
+                x:Name="BotonAceptar"
+                Content="Aceptar"
+                Margin="5"
+                Padding="5"
+                BorderThickness="0"
+                Background="SteelBlue"
+                IsDefault="True"
+                IsEnabled="False"
+                Click="ClickAceptar"/>
+            <Button
+                x:Name="BotonCancelar"
+                Content="Cancelar"
+                Margin="5"
+                Padding="5"
+                BorderThickness="0"
+                IsCancel="True"/>
+        </StackPanel>
+    </Grid>
+</Window>

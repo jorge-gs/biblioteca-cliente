@@ -1,0 +1,132 @@
+﻿<Window x:Class="Biblioteca.Vistas.DetalleClase"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Biblioteca.Vistas"
+        mc:Ignorable="d"
+        Title="Clase"
+        SizeToContent="WidthAndHeight"
+        ShowInTaskbar="False"
+        ResizeMode="NoResize"
+        Icon="../Iconos/clases.scale-100.png"
+        WindowStartupLocation="CenterOwner">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!--Clase-->
+        <TextBlock
+            Text="Clase"
+            FontSize="18"
+            Margin="5"
+            Grid.Column="0" Grid.Row="0" />
+
+        <Grid
+            x:Name="PanelClase"
+            Grid.Column="0" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            
+            <!--Labels-->
+            <TextBlock
+                Text="Código"
+                Margin="5"
+                Grid.Column="0" Grid.Row="0"
+                VerticalAlignment="Center"/>
+            <TextBlock
+                Text="Nombre"
+                Margin="5"
+                Grid.Column="0" Grid.Row="1"
+                VerticalAlignment="Center" />
+            <TextBlock
+                Text="Horas"
+                Margin="5"
+                Grid.Column="0" Grid.Row="2"
+                VerticalAlignment="Center" />
+            <TextBlock
+                Text="UVs"
+                Margin="5"
+                Grid.Column="0" Grid.Row="3"
+                VerticalAlignment="Center" />
+            
+            <!--Entrada-->
+            <TextBox
+                x:Name="Codigo"
+                Margin="5"
+                MinWidth="150"
+                MaxWidth="150"
+                Grid.Column="1" Grid.Row="0"
+                TextChanged="IntroducirTexto" />
+            <TextBox
+                x:Name="Nombre"
+                Margin="5"
+                MinWidth="150"
+                MaxWidth="150"
+                Grid.Column="1" Grid.Row="1"
+                TextChanged="IntroducirTexto" />
+            <TextBox
+                x:Name="Horas"
+                Margin="5"
+                MinWidth="150"
+                MaxWidth="150"
+                Grid.Column="1" Grid.Row="2"
+                TextChanged="IntroducirTexto" />
+            <TextBox
+                x:Name="UVs"
+                Margin="5"
+                MinWidth="150"
+                MaxWidth="150"
+                Grid.Column="1" Grid.Row="3"
+                TextChanged="IntroducirTexto" />
+        </Grid>
+
+        <Button
+            x:Name="Secciones"
+            Content="Secciones"
+            Width="75"
+            BorderThickness="0"
+            Margin="5"
+            Padding="5"
+            HorizontalAlignment="Left"
+            Grid.Column="0" Grid.Row="2"
+            Click="ClickSecciones" IsEnabled="False" />
+
+        <StackPanel
+            x:Name="OpcionesCarrera"
+            Orientation="Horizontal"
+            FlowDirection="RightToLeft"
+            Grid.Column="0" Grid.Row="3">
+            <Button
+                x:Name="BotonAceptar"
+                Content="Aceptar"
+                Margin="5"
+                Click="ClickAceptar"
+                Padding="5"
+                BorderThickness="0"
+                IsDefault="True"
+                IsEnabled="False"
+                Background="SteelBlue" />
+            <Button
+                x:Name="BotonCancelar"
+                Content="Cancelar"
+                Margin="5"
+                Padding="5"
+                IsCancel="True"
+                BorderThickness="0"/>
+        </StackPanel>
+    </Grid>
+</Window>
