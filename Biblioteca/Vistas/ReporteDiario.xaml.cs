@@ -39,7 +39,7 @@ namespace Biblioteca.Vistas
             foreach (var prestamo in prestamos)
             {
                 var devuelto = prestamo.ObjetoFechaDevolucion.HasValue;
-                devueltas++;
+                if (devuelto) { devueltas++; }
                 var devolucion = !devuelto ? "El artículo aún no ha sido devuelto" : " devuelto en " +
                     prestamo.FechaDevolucion.ToLocalTime().ToShortDateString() + " a las " +
                     prestamo.FechaDevolucion.ToLocalTime().ToLongTimeString();
