@@ -40,24 +40,24 @@ namespace Biblioteca.Vistas
             {
                 var devuelto = prestamo.ObjetoFechaDevolucion.HasValue;
                 devueltas++;
-                var devolucion = !devuelto ? "El artículo aún no ha sido devuelto": " devuelto en " +
+                var devolucion = !devuelto ? "El artículo aún no ha sido devuelto" : " devuelto en " +
                     prestamo.FechaDevolucion.ToLocalTime().ToShortDateString() + " a las " +
                     prestamo.FechaDevolucion.ToLocalTime().ToLongTimeString();
-                if (prestamo.ObjetoFechaDevolucion.HasValue)
-                {
-                    var texto = new TextBlock();
-                    texto.Text = prestamo.Fecha.ToLocalTime().ToLongTimeString() + " " +
-                        prestamo.ObjetoPrestable.ToString() + " " +
-                        prestamo.ObjetoPersona.NombreCompleto + " " +
-                        devolucion;
-                    Contenido.Children.Add(texto);
-                }
+
+                var texto = new TextBlock();
+                texto.Text = prestamo.Fecha.ToLocalTime().ToLongTimeString() + " " +
+                    prestamo.ObjetoPrestable.ToString() + " " +
+                    prestamo.ObjetoPersona.NombreCompleto + " " +
+                    devolucion;
+                Contenido.Children.Add(texto);
             }
 
             var conclusion = new TextBlock();
+            conclusion.TextWrapping = TextWrapping.Wrap;
+            conclusion.MaxWidth = 700;
             conclusion.Text = "El día " + info.Fecha.ToLocalTime().ToString("D", cultura) +
                 " se han registrado " +
-                prestamos.Count + " transacciones bibliotecarias\nDe las cuales " + devueltas +
+                prestamos.Count + " transacciones bibliotecarias de las cuales " + devueltas +
                 " han sido completadas y " + (prestamos.Count - devueltas) + " están pendientes.";
             conclusion.Margin = new Thickness(0, 30, 0, 0);
             Contenido.Children.Add(conclusion);

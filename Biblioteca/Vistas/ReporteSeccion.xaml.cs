@@ -51,10 +51,12 @@ namespace Biblioteca.Vistas
             }
 
             var conclusion = new TextBlock();
-            conclusion.Text = "El catedrático " + info.ObjetoPersona.NombreCompleto + " ha impartido " +
-                horas.Hour + ":" + horas.Minute + " horas de clase a los estudiantes de la clase:\n" +
-                info.ObjetoSeccion.ObjetoClase.Codigo + " " + info.ObjetoSeccion.ObjetoClase.Nombre + "\n" +
-                "en la sección " + info.ObjetoSeccion.Letra + " durante el periodo " + info.ObjetoSeccion.ObjetoPeriodo.ToString();
+            conclusion.MaxWidth = 700;
+            conclusion.TextWrapping = TextWrapping.Wrap;
+            conclusion.Text = "El catedrático " + info.ObjetoSeccion.ObjetoCatedratico.NombreCompleto + " ha impartido " +
+                horas.ToString("HH:MM") + " horas de clase a los estudiantes de la clase " +
+                info.ObjetoSeccion.ObjetoClase.Codigo + " " + info.ObjetoSeccion.ObjetoClase.Nombre + "" +
+                " en la sección " + info.ObjetoSeccion.Letra + " durante el periodo " + info.ObjetoSeccion.ObjetoPeriodo.ToString() + ".";
             conclusion.Margin = new Thickness(0, 30, 0, 0);
             Contenido.Children.Add(conclusion);
         }

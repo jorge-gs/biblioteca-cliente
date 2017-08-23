@@ -10,6 +10,6 @@
         <Image Height="100" Source="/Biblioteca;component/Iconos/logo.png" HorizontalAlignment="Left"/>
         <TextBlock TextWrapping="Wrap" Text="Universidad José Cecilio del Valle" FontSize="24" />
         <TextBlock TextWrapping="Wrap" Text="Reporte de Entradas y Salidas" />
-        <TextBlock x:Name="Nombre" TextWrapping="Wrap" Text="TextBlock" />
+        <TextBlock x:Name="Nombre" TextWrapping="Wrap" Text="Hola como estas yo estoy muy bien y vos, espero que tambien estés bien.Hola como estas yo estoy muy bien y vos, espero que tambien estés bien.Hola como estas yo estoy muy bien y vos, espero que tambien estés bien.Hola como estas yo estoy muy bien y vos, espero que tambien estés bien.Hola como estas yo estoy muy bien y vos, espero que tambien estés bien.Hola como estas yo estoy muy bien y vos, espero que tambien estés bien.Hola como estas yo estoy muy bien y vos, espero que tambien estés bien.Hola como estas yo estoy muy bien y vos, espero que tambien estés bien.Hola como estas yo estoy muy bien y vos, espero que tambien estés bien.Hola como estas yo estoy muy bien y vos, espero que tambien estés bien." />
     </StackPanel>
 </Window>
